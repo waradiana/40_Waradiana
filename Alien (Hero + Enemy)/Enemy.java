@@ -28,5 +28,8 @@ public class Enemy extends Actor
     public void act()
     {
        move(speed);
+       if (isAtEdge())
+            getWorld().removeObject(this);
     }
+     
 }

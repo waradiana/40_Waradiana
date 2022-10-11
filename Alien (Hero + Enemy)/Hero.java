@@ -15,23 +15,34 @@ public class Hero extends Actor
     public void act()
     {
        moveHero(); 
+       shootLaser();
     }
     
     public void moveHero()
     {
         if(Greenfoot.isKeyDown("w"))
-            setLocation(getX(), getY()-2);
+            setLocation(getX(), getY()-3);
             
         if(Greenfoot.isKeyDown("s"))
-            setLocation(getX(), getY()+2);
+            setLocation(getX(), getY()+3);
         
         if(Greenfoot.isKeyDown("a"))
-            setLocation(getX()-2, getY());
+            setLocation(getX()-3, getY());
             
         if(Greenfoot.isKeyDown("d"))
-            setLocation(getX()+2, getY());
-            
-        if(Greenfoot.isKeyDown("space"))
-            move(2);
+            setLocation(getX()+3, getY());
+    }
+    
+    int laserTimer = 0;
+    public void shootLaser()
+    {
+        if (laserTimer == 30)
+        {
+            getWorld().addObject(new laser(), getX() + 5, getY());
+            laserTimer = 0;
+        }else{
+            laserTimer++;
+        }
     }
 }
+    
