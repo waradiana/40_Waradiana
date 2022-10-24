@@ -16,6 +16,7 @@ public class Hero extends Actor
     {
        moveHero(); 
        shootLaser();
+       detectEnemyCollision();
     }
     
     public void moveHero()
@@ -42,6 +43,24 @@ public class Hero extends Actor
             laserTimer = 0;
         }else{
             laserTimer++;
+        }
+    }
+    
+    public void detectEnemyCollision()
+    {
+        if (isTouching(Enemy.class))
+        {
+            enemyCollision();
+            removeTouching(Enemy.class);
+            setLocation(100,200);
+        }  
+    }
+    
+    public void enemyCollision()
+    {
+        if (isTouching(Enemy.class))
+        {
+            getWorld(). addObject(new Boom(), getX(),getY());  
         }
     }
 }
