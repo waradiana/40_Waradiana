@@ -15,12 +15,10 @@ public class Laser extends Actor
     public void act()
     {
         move(8);
-        
         laserCollision(); 
-         
     }
     
-    public void laserCollision()
+    private void laserCollision()
     {
         if(isTouching(Enemy.class))
         {

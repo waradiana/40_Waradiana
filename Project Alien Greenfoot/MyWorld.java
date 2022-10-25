@@ -31,10 +31,11 @@ public class MyWorld extends World
     public void act()
     {
         spawnEnemy();
+        spawnEnemy2();
     }
     
-    public int timerEnemy = 0;
-    public void spawnEnemy()
+    private int timerEnemy = 0;
+    private void spawnEnemy()
     {
         if (timerEnemy==180) //jika timer = 3 detik
         {
@@ -46,4 +47,19 @@ public class MyWorld extends World
             timerEnemy++;
         }
     }
+    
+    private int timerEnemy2 = 0;
+    private void spawnEnemy2()
+    {
+        if (timerEnemy2==180) //jika timer = 3 detik
+        {
+            //int speed = Greenfoot.getRandomNumber(4) + 1;
+            addObject(new Enemy2(Greenfoot.getRandomNumber(4) + 1),599,Greenfoot.getRandomNumber(400));
+            timerEnemy2 = 0;
+        }else
+        {
+            timerEnemy2++;
+        }
+    }
+    
 }

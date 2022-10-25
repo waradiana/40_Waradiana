@@ -24,12 +24,16 @@ public class Enemy extends Actor
         this.speed = speed;
     }
     
-    public int speed = 2;
+    private int speed = 2;
     public void act()
     {
-       move(speed);
-       if (isAtEdge())
-            getWorld().removeObject(this);
+       enemyMove();
     }
      
+    protected void enemyMove()
+    {
+       move(speed);
+        if (isAtEdge())
+            getWorld().removeObject(this);
+    }
 }

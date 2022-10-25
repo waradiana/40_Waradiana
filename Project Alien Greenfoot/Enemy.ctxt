@@ -8,4 +8,6 @@ comment2.params=speed
 comment2.target=Enemy(int)
 comment3.params=
 comment3.target=void\ act()
-numComments=4
+comment4.params=
+comment4.target=void\ enemyMove()
+numComments=5

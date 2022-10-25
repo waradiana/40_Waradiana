@@ -19,7 +19,7 @@ public class Hero extends Actor
        detectEnemyCollision();
     }
     
-    public void moveHero()
+    private void moveHero()
     {
         if(Greenfoot.isKeyDown("w"))
             setLocation(getX(), getY()-3);
@@ -34,8 +34,8 @@ public class Hero extends Actor
             setLocation(getX()+3, getY());
     }
     
-    int laserTimer = 0;
-    public void shootLaser()
+    private int laserTimer = 0;
+    private void shootLaser()
     {
         if (laserTimer == 30)
         {
@@ -46,7 +46,7 @@ public class Hero extends Actor
         }
     }
     
-    public void detectEnemyCollision()
+    private void detectEnemyCollision()
     {
         if (isTouching(Enemy.class))
         {
@@ -56,7 +56,7 @@ public class Hero extends Actor
         }  
     }
     
-    public void enemyCollision()
+    private void enemyCollision()
     {
         if (isTouching(Enemy.class))
         {

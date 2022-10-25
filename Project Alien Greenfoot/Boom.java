@@ -18,8 +18,8 @@ public class Boom extends Actor
         boom();
     }
     
-    int boomTimer = 0;
-    public void boom()
+    private int boomTimer = 0;
+    private void boom()
     {
         if(boomTimer==60)
         {
