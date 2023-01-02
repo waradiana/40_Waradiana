@@ -37,9 +37,9 @@ public class Hero extends Actor
     private int laserTimer = 0;
     private void shootLaser()
     {
-        if (laserTimer == 30)
+        if (laserTimer == 20)
         {
-            getWorld().addObject(new Laser(), getX() + 60, getY());
+            getWorld().addObject(new Laser(), getX() + 30, getY());
             laserTimer = 0;
         }else{
             laserTimer++;

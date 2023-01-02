@@ -12,21 +12,28 @@ public class Enemy2 extends Enemy
      * Act - do whatever the Enemy2 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
-    public Enemy2()
+    public void act()
     {
+        super.act();
+        shootLaser();
+    }
+    
+    public Enemy2(){
         super();
     }
     
-    public Enemy2(int speed)
-    {
+    public Enemy2(int speed){
         super(speed);
     }
     
-    public void act()
-    {
-       super.enemyMove();
-       turn(1);
+    private int laserTimer=0;
+    public void shootLaser(){
+        if(laserTimer==30){
+            getWorld().addObject(new LaserEnemy(), getX()-80, getY());
+            Greenfoot.playSound("laser.wav");
+            laserTimer=0;
+        }else{
+            laserTimer++;
+        }
     }
-    
 }

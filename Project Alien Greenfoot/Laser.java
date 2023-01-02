@@ -23,7 +23,7 @@ public class Laser extends Actor
         if(isTouching(Enemy.class))
         {
             getWorld().addObject(new Boom(), getX(), getY());
-            
+            Greenfoot.playSound("explosion.mp3");
             removeTouching(Enemy.class);
             getWorld().removeObject(this);
         }

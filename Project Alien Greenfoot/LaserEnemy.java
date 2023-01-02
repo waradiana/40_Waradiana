@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class LaserEnemy extends Enemy2
+public class LaserEnemy extends Actor
 {
     /**
      * Act - do whatever the LaserEnemy wants to do. This method is called whenever
@@ -14,6 +14,18 @@ public class LaserEnemy extends Enemy2
      */
     public void act()
     {
-        // Add your action code here.
+        move(-80);
+        laserCollision();
+    }
+    
+    public void laserCollision(){
+        if(isTouching(Hero.class)){
+            getWorld().addObject(new Boom(), getX(), getY());
+            Greenfoot.playSound("explosion.mp3");
+            removeTouching(Hero.class);
+            getWorld().addObject(new Hero(), 70, 200);
+        }else{
+            getWorld().removeObject(this);
+        }
     }
 }
